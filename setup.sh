@@ -1050,7 +1050,7 @@ fun_bar() {
         touch $HOME/fim
     ) >/dev/null 2>&1 &
     tput civis
-    echo -ne " ${grs}Sedang memasang ${gry}- ${grs}["
+    echo -ne " ${grs}Instalación ${gry}- ${grs}["
     while true; do
         for ((i = 0; i < 11; i++)); do
             echo -ne "${gr}➣"
@@ -1061,9 +1061,9 @@ fun_bar() {
         sleep 1s
         tput cuu1
         tput dl1
-        echo -ne " ${grs}Sedang memasang ${gry}- ${grs}["
+        echo -ne " ${grs}Instalación ${gry}- ${grs}["
     done
-    echo -e "${grs}]${gry} - ${gr}Selesai !${gry}"
+    echo -e "${grs}]${gry} - ${gr}Finalizado !${gry}"
     tput cnorm
 }
 echo -e " ${grs}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
