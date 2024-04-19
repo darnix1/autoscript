@@ -44,7 +44,7 @@ res1() {
     #mv menu/* /usr/local/sbin
     rm -rf menu menu.zip
     rm -rf update.sh
-    wget -qO- fv-tunnel "https://raw.githubusercontent.com/ALAWI-VPN/autoscript/main/config/fv-tunnel" 
+    wget -qO- fv-tunnel "https://raw.githubusercontent.com/darnix1/dnx/main/config/fv-tunnel" 
     chmod +x fv-tunnel 
     bash fv-tunnel
     rm -rf fv-tunnel
