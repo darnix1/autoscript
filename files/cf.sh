@@ -13,7 +13,7 @@ mkdir -p /root/xray
 clear
 echo ""
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c3)
-read -rp "$(echo -e "${red}Masukkan ${hijau}subdomain ${NC}kamu: ")" sub
+read -rp "$(echo -e "${red}Ingresar ${hijau}subdominio ${NC}Tú: ")" sub
 # akun cloudflare
 CF_ID="vpsvpsku@gmail.com"
 CF_KEY="cb9b858e75a955df979cf4bff74839df1943d"
@@ -28,7 +28,7 @@ IP=$(curl -sS ifconfig.me)
 set -euo pipefail
 IP1=${IP};
 echo -e ""
-echo -e "Sedang pointing ${biru}${SUB_DOMAIN1}$NC..."
+echo -e "estoy apuntando ${biru}${SUB_DOMAIN1}$NC..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
 -H "X-Auth-Key: ${CF_KEY}" \
@@ -51,7 +51,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 --data '{"type":"A","name":"'${SUB_DOMAIN1}'","content":"'${IP1}'","ttl":120,"proxied":false}')
 echo -e "${hijau}Sukses!$NC"
 # WILDCARD
-echo -e "Sedang pointing ${biru}${SUB_DOMAIN01}$NC..."
+echo -e "estoy apuntando ${biru}${SUB_DOMAIN01}$NC..."
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN1}&status=active" \
 -H "X-Auth-Email: ${CF_ID}" \
 -H "X-Auth-Key: ${CF_KEY}" \
@@ -72,22 +72,22 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 -H "X-Auth-Key: ${CF_KEY}" \
 -H "Content-Type: application/json" \
 --data '{"type":"A","name":"'${SUB_DOMAIN01}'","content":"'${IP1}'","ttl":120,"proxied":false}')
-echo -e "${hijau}Sukses!$NC"
+echo -e "${hijau}Éxito!$NC"
 echo -e ""
 sleep 3
 clear
 #pemberitahuan selesai
 echo -e ""
 echo -e "$biru┌──────────────────────────────────────────┐$NC"
-echo -e "$biru│   ${hijau}POINTING DOMAIN KE CLOUDFLARE SELESAI  $biru│$NC"
+echo -e "$biru│   ${hijau}DOMINIO Apuntando A CLOUDFLARE COMPLETO  $biru│$NC"
 echo -e "$biru└──────────────────────────────────────────┘$NC"
 echo -e ""
-echo -e "${hijau}Berhasil$NC Pointing ${biru}${SUB_DOMAIN1}$NC"
-echo -e "         Untuk ip ${biru}${IP}$NC"
+echo -e "${hijau}Tener éxito$NC Señalando ${biru}${SUB_DOMAIN1}$NC"
+echo -e "         Para propiedad intelectual ${biru}${IP}$NC"
 echo -e ""
 TIMES="10"
-CHATID="6331389328"
-KEY="7104548532:AAHl8gN5J8tWqWnEKpgZFSTDRyuoHwt5bKw"
+CHATID="6409531191"
+KEY="6707733847:AAGmyG1bkb9BrKOjytnHfNjEpo1_aSr7cTo"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 TIMEZONE=$(printf '%(%H:%M:%S)T')
 TEXT="
@@ -109,6 +109,6 @@ echo "$SUB_DOMAIN1" > /etc/xray/scdomain
 echo "IP=$SUB_DOMAIN1" > /var/lib/kyt/ipvps.conf
 clear
 domain=$(cat /etc/xray/domain)
-echo -e "Domain kamu yang disimpan adalah ${biru}${domain}${NC}"
+echo -e "Tu dominio guardado es ${biru}${domain}${NC}"
 rm -rf cf
 sleep 3
