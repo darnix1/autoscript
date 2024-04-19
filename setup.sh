@@ -36,11 +36,11 @@ clear
 # // Banner
 echo -e ""
 echo -e "   ${grs}───────────────────────────────────────────${NC}"
-echo -e "        ${gr}AUTOSCRIPT MODIFIED BY ALAWI VPN${NC}"
+echo -e "        ${gr} SCRIPT BY DARNIX ${NC}"
 echo -e "   ${grs}───────────────────────────────────────────${NC}"
 echo -e ""
 while true; do
-    read -rp "   Masukkan nama kamu (tanpa spasi): " buyer
+    read -rp " Introduce tu nombre (sin espacios): " buyer
     [[ -n "$buyer" ]] && break
 done
 sleep 2
@@ -107,7 +107,7 @@ REPO="https://raw.githubusercontent.com/darnix1/autoscript/main/"
 ####
 start=$(date +%s)
 secs_to_human() {
-    echo " ➣ Waktu instalasi script: $((${1} / 3600)) hours $(((${1} / 60) % 60)) minute's $((${1} % 60)) seconds"
+    echo " ➣ Tiempo de instalación del script: $((${1} / 3600)) hours $(((${1} / 60) % 60)) minute's $((${1} % 60)) seconds"
 }
 ### Status
 function print_ok() {
@@ -255,17 +255,18 @@ gr="\e[92;1m"
 NC='\033[0m'
 clear
 echo -e ""
+figlet " DOMINIO " | boxes -d stone -p a2v1 | sed 's/\(.\)/\x1b[1;37m\1\x1b[0m/g'
 echo -e " ${grs}─────────────────────────────────────────${NC}"
-echo -e "     ${gr}PILIHAN DOMAIN YANG AKAN DIPASANG${NC}"
+echo -e "     ${gr}ELECCIÓN DEL DOMINIO A INSTALAR${NC}"
 echo -e " ${grs}─────────────────────────────────────────${NC}"
-echo -e "  [${gr}01${NC}]Menggunakan Domain Sendiri"
-echo -e "  [${gr}02${NC}]Menggunakan Domain Bawaan Script"
+echo -e "  [${gr}01${NC}]Usando tu propio dominio"
+echo -e "  [${gr}02${NC}]Uso del dominio integrado del script"
 echo -e " ${grs}─────────────────────────────────────────${NC}"
 echo -e ""
 read -rp " $(echo -e "Silahkan pilih ${gr}1${NC}/${gr}2${NC} atau ${grs}[ ${gr}enter ${grs}]${NC}: ")" host
 if [[ $host == "1" ]]; then
-    echo -e " ${gr}Masukkan Domain kamu...!$NC"
-    read -p " Domain: " host1
+    echo -e " ${gr}Ingrese su Dominio...!$NC"
+    read -p " Dominio: " host1
     echo "IP=${host1}" > /var/lib/kyt/ipvps.conf
     echo $host1 > /etc/xray/domain
     echo $host1 > /root/domain
@@ -276,8 +277,8 @@ elif [[ $host == "2" ]]; then
     rm -f /root/cf.sh
     clear
 else
-    echo -e " ${gr}Masukkan Domain kamu...!$NC"
-    read -p " Domain: " host1
+    echo -e " ${gr}Ingrese su Dominio...!$NC"
+    read -p " Dominio: " host1
     echo "IP=" > /var/lib/kyt/ipvps.conf
     echo $host1 > /etc/xray/domain
     echo $host1 > /root/domain
@@ -333,8 +334,8 @@ TIMES="10"
 ISP=$(curl -s ipinfo.io/org)
 # TELEGRAM GET ID & TOKEN
 TIMES="10"
-CHATID="-1002074460996"
-KEY="6920568755:AAGDq9kRUEsS_TKnU3v-cyxYei5YVKjd390"
+CHATID="-1001710426842"
+KEY="6633153384:AAFZu8cehxKiII6BLrTU2jr4KUZAZie6v7M"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 TIMEZONE=$(printf '%(%H:%M:%S)T')
 TEXT="
@@ -350,7 +351,7 @@ TEXT="
 ☘️ » <b>Expired  :</b> <code>${exp}</code>
 ━━━━━━━━━━━━━━━━━━━━━━━
 <i>Auto Notification Before Installed...</i>
-"'&reply_markup={"inline_keyboard":[[{"text":"☘️ ORDER","url":"https://t.me/alawivpn"},{"text":"ORDER ☘️","url":"https://t.me/muslimvpn"}]]}'
+"'&reply_markup={"inline_keyboard":[[{"text":"☘️ ORDER","url":"https://t.me/suppbotgens"},{"text":"ORDER ☘️","url":"https://t.me/botlatmx"}]]}'
 curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 }
 clear
@@ -583,7 +584,16 @@ systemctl enable udp-mini-3
 systemctl start udp-mini-3
 print_success "Limit IP Service"
 }
-
+function dan_udp(){
+clear
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green       INSTALL SSH UDP             $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+wget https://raw.githubusercontent.com/myridwan/pcx/ipuk/udp/udp.sh && chmod +x udp.sh && ./udp.sh
+wget https://raw.githubusercontent.com/myridwan/pcx/ipuk/udp/zi.sh && chmod +x zi.sh && ./zi.sh
+wget https://raw.githubusercontent.com/myridwan/pcx/ipuk/udp/req.sh && chmod +x req.sh && ./req.sh
+rm -fr udp.sh zi.sh req.sh
+}
 clear
 function ins_SSHD(){
 clear
@@ -1057,45 +1067,47 @@ fun_bar() {
     tput cnorm
 }
 echo -e " ${grs}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e " ${bg}     PEMASANGAN SELURUH PAKET PENTING      ${NC}"
+echo -e " ${bg}     INSTALADOR DARNIX      ${NC}"
 echo -e " ${grs}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e " ${gr}MEMASANG XRAY${NC}"
+echo -e " ${gr}INSTALANDO XRAY${NC}"
 fun_bar 'install_xray'
-echo -e " ${gr}MEMASANG SSH${NC}"
+echo -e " ${gr}INSTALANDO SSH${NC}"
 fun_bar 'ssh'
-echo -e " ${gr}MEMASANG UDP MINI${NC}"
+echo -e " ${gr}INSTALANDO UDP MINI${NC}"
 fun_bar 'udp_mini'
-echo -e " ${gr}MEMASANG SSHD${NC}"
+echo -e " ${gr}INSTALANDO UDP RE ZI${NC}"
+fun_bar 'dan_udp'
+echo -e " ${gr}INSTALANDO SSHD${NC}"
 fun_bar 'ins_SSHD'
-echo -e " ${gr}MEMASANG DROPBEAR${NC}"
+echo -e " ${gr}INSTALANDO DROPBEAR${NC}"
 fun_bar 'ins_dropbear'
-echo -e " ${gr}MEMASANG VNSTAT${NC}"
+echo -e " ${gr}INSTALANDO VNSTAT${NC}"
 fun_bar 'ins_vnstat'
-echo -e " ${gr}MEMASANG OPENVPN${NC}"
+echo -e " ${gr}INSTALANDO OPENVPN${NC}"
 fun_bar 'ins_openvpn'
-echo -e " ${gr}MEMASANG BACKUP${NC}"
+echo -e " ${gr}INSTALANDO BACKUP${NC}"
 fun_bar 'ins_backup'
-echo -e " ${gr}MEMASANG SWAP RAM 1GB${NC}"
+echo -e " ${gr}INSTALANDO SWAP RAM 1GB${NC}"
 fun_bar 'ins_swap'
-echo -e " ${gr}MEMASANG FAIL2BAN${NC}"
+echo -e " ${gr}INSTALANDO FAIL2BAN${NC}"
 fun_bar 'ins_Fail2ban'
-echo -e " ${gr}MEMASANG EPROXY${NC}"
+echo -e " ${gr}INSTALANDO EPROXY${NC}"
 fun_bar 'ins_epro'
-echo -e " ${gr}MEMASANG RESTART${NC}"
+echo -e " ${gr}INSTALANDO RESTART${NC}"
 fun_bar 'ins_restart'
-echo -e " ${gr}MEMASANG MENU${NC}"
+echo -e " ${gr}INSTALANDO MENU${NC}"
 fun_bar 'menu'
-echo -e " ${gr}MEMASANG PROFILE${NC}"
+echo -e " ${gr}INSTALANDO PROFILE${NC}"
 fun_bar 'profile'
-echo -e " ${gr}MENGHIDUPKAN SEMUA SERVICE${NC}"
+echo -e " ${gr}ACTIVANDO SERVICIOS${NC}"
 fun_bar 'enable_services'
-echo -e " ${gr}MEMASANG UDP CUSTOM${NC}"
+echo -e " ${gr}INSTALANDO UDP CUSTOM${NC}"
 fun_bar 'install_udp'
-echo -e " ${gr}MERESTART SEMUA SYSTEM${NC}"
+echo -e " ${gr}REINICIANDO SISTEMAS${NC}"
 fun_bar 'restart_system'
 echo -e " ${gr}DELETING TEMPORARY FILE${NC}"
 fun_bar 'deleting_tmp'
 echo -e ""
 secs_to_human "$(($(date +%s) - ${start}))"
-read -rp "$(echo -e " Script ${gr}Selesai ${NC}dipasang. Klik [ ${gr}enter ${NC}] untuk reboot: ")"
+read -rp "$(echo -e " Script ${gr}Finalizado ${NC}dipasang. Klik [ ${gr}enter ${NC}] untuk reboot: ")"
 reboot
