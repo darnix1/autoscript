@@ -15,6 +15,8 @@ green='\e[0;32m'
 # ===================
 clear
   # // Exporint IP AddressInformation
+  sudo apt-get install -y figlet boxes
+sudo apt-get install -y pv
 sudo apt-get install curl -y
 sudo apt update -y && sudo apt upgrade -y
 sudo apt-get update
@@ -49,9 +51,9 @@ clear
 # // Valid Script
 ipsaya=$(curl -sS ipv4.icanhazip.com)
 
-data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/darnix1/autoscript/main/REGISTRASI"
+#data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+#date_list=$(date +"%Y-%m-%d" -d "$data_server")
+#data_ip="https://raw.githubusercontent.com/darnix1/autoscript/main/REGISTRASI"
 # // Checking Os Architecture
 if [[ $( uname -m | awk '{print $1}' ) == "x86_64" ]]; then
     echo -e "${OK} Your Architecture Is Supported ( ${green}$( uname -m )${NC} )"
@@ -102,7 +104,7 @@ gem install lolcat
 apt install wondershaper -y
 clear
 # REPO
-REPO="https://raw.githubusercontent.com/darnix1/autoscript/main/"
+REPO="https://raw.githubusercontent.com/darnix1/dnx/main/"
 
 ####
 start=$(date +%s)
@@ -263,7 +265,7 @@ echo -e "  [${gr}01${NC}]Usando tu propio dominio"
 echo -e "  [${gr}02${NC}]Uso del dominio integrado del script"
 echo -e " ${grs}─────────────────────────────────────────${NC}"
 echo -e ""
-read -rp " $(echo -e "Silahkan pilih ${gr}1${NC}/${gr}2${NC} atau ${grs}[ ${gr}enter ${grs}]${NC}: ")" host
+read -rp " $(echo -e "Por favor seleccione ${gr}1${NC}/${gr}2${NC} o ${grs}[ ${gr}enter ${grs}]${NC}: ")" host
 if [[ $host == "1" ]]; then
     echo -e " ${gr}Ingrese su Dominio...!$NC"
     read -p " Dominio: " host1
