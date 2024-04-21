@@ -18,10 +18,10 @@ fun_bar() {
         touch $HOME/fim
     ) >/dev/null 2>&1 &
     tput civis
-    echo -ne " ${grs}Sedang memasang ${gry}- ${grs}["
+    echo -ne " ${grs}Actualizando ${gry}- ${grs}["
     while true; do
         for ((i = 0; i < 11; i++)); do
-            echo -ne "${gr}➣"
+            echo -ne "${gr}➣ "
             sleep 0.1s
         done
         [[ -e $HOME/fim ]] && rm $HOME/fim && break
@@ -29,9 +29,9 @@ fun_bar() {
         sleep 1s
         tput cuu1
         tput dl1
-        echo -ne " ${grs}Sedang memasang ${gry}- ${grs}["
+        echo -ne " ${grs}Actualizando ${gry}- ${grs}["
     done
-    echo -e "${grs}]${gry} - ${gr}Selesai !${gry}"
+    echo -e "${grs}]${gry} - ${gr}Ok !${gry}"
     tput cnorm
 }
 res1() {
@@ -51,7 +51,11 @@ res1() {
 }
 netfilter-persistent
 clear
-echo -e "${grs}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "\e[38;5;239m════════════════════════════════════════════════════"
+echo -e "         \033[45m \033[103m \033[107m\033[30m SCRIPT DARNIX OPTIMIZADO \033[103m \033[45m \e[0m"
+echo -e ""
+echo -e "\033[38;5;239m════════════════\e[48;5;1m\e[38;5;230m  ACTUALIZAR  \e[0m\e[38;5;239m════════════════════"
+echo -e ""
 echo -e "${bg}              UPDATE SCRIPT               ${NC}"
 echo -e "${grs}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e ""
