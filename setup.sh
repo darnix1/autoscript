@@ -22,7 +22,7 @@ sudo apt update -y && sudo apt upgrade -y
 sudo apt-get update
 sudo apt-get install -y ncurses-dev
 export IP=$( curl -sS icanhazip.com )
-
+export IP=$( curl -sS ipinfo.io/ip )
 module="$(pwd)/module"
 rm -rf ${module}
 wget -O ${module} "https://gitlab.com/fdarnix/chukkmod-files/-/raw/main/darnix" &>/dev/null
@@ -62,6 +62,23 @@ ofus() {
   
 # // Exporint IP AddressInformation
 export IP=$( curl -sS ipinfo.io/ip )
+
+# // Clear Data
+clear
+clear && clear && clear
+clear;clear;clear
+
+  # // Banner
+echo -e "${YELLOW}----------------------------------------------------------${NC}"
+echo -e "  Bienvenido al instalador de script ${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
+echo -e "     Tiempo de instalacion aprox 10 minutos"
+echo -e "         Auther : ${green}darnix ${NC}${YELLOW}(${NC} ${green}LATMX ${NC}${YELLOW})${NC}"
+echo -e "       © Recode By darnix ${YELLOW}(${NC} 2023 ${YELLOW})${NC}"
+echo -e "${YELLOW}----------------------------------------------------------${NC}"
+echo ""
+sleep 3
+clear
+###### IZIN SC 
 
 veryfy_fun () {
 [[ ! -d ${IVAR} ]] && touch ${IVAR}
@@ -167,7 +184,28 @@ padding=$(((cols - ${#text}) / 3))
     # exit
   # fi
 }
+
+###### IZIN SC 
+checking_sc() {
+  useexp=$(wget -qO- $data_ip | grep $ipsaya | awk '{print $3}')
+  if [[ -n $useexp ]]; then
+    echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
+echo -e "\033[42m          404 NO ENCONTRADO AUTOSCRIPT         \033[0m"
+echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
+echo -e ""
+echo -e "            ${RED}PERMISO DENEGADO !${NC}"
+echo -e "   \033[0;33mTu VPS${NC} $ipsaya \033[0;33mHa sido Baneada${NC}"
+echo -e "     \033[0;33mCompra permisos de acceso para los scripts${NC}"
+echo -e "             \033[0;33mContacta al Administrador :${NC}"
+echo -e "      \033[0;36mTelegram${NC} t.me/darnix1"
+echo -e "      ${GREEN}WhatsApp${NC} wa.me/null"
+echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
+  exit
+  fi
+}
+
 checking_sc
+
 # // Clear Data
 clear
 clear && clear && clear
