@@ -1258,6 +1258,9 @@ fun_bar 'restart_system'
 echo -e " ${gr}DELETING TEMPORARY FILE${NC}"
 fun_bar 'deleting_tmp'
 echo -e ""
+ver=$( curl https://raw.githubusercontent.com/darnix1/vip/main/version.conf )
+history -c
+echo "$ver" > /home/ver
 secs_to_human "$(($(date +%s) - ${start}))"
 read -rp "$(echo -e " Script ${gr}Finalizado ${NC}dipasang. Klik [ ${gr}enter ${NC}] untuk reboot: ")"
 reboot
