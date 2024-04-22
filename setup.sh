@@ -167,6 +167,7 @@ padding=$(((cols - ${#text}) / 3))
     # exit
   # fi
 }
+checking_sc
 # // Clear Data
 clear
 clear && clear && clear
