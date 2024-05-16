@@ -19,7 +19,7 @@ CF_ID="cisdan96@gmail.com"
 CF_KEY="c4b679733fe4242eb2328c117b69fabb"
 
 # Detail Record A
-DOMAIN1="udpserver.my.id"
+DOMAIN1="darnixmx.com"
 SUB_DOMAIN1="${sub}.${DOMAIN1}"
 SUB_DOMAIN01="*.${SUB_DOMAIN1}"
 IP=$(curl -sS ifconfig.me)
