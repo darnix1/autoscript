@@ -1,5 +1,5 @@
 #!/bin/bash
-
+   activate_ws_epro() {
     echo -e "   INSTALANDO SERVIDOR PYTHON WS-EPRO"
     sleep 0.3
     echo
@@ -59,3 +59,4 @@ chmod +x "$install_path"
 }
 
 # Function to modify WS-EPRO port
+activate_ws_epro
