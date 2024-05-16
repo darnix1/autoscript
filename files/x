@@ -1,45 +1,6 @@
 #!/bin/bash
-module="$(pwd)/module"
-rm -rf ${module}
-wget -O ${module} "https://raw.githubusercontent.com/darnix1/UDP-Custom/main/colores" &>/dev/null
-[[ ! -e ${module} ]] && exit
-chmod +x ${module} &>/dev/null
-source ${module}
 
-
-# Function to display the menu header
-enc_darnix() {
-    echo -e "MENU WS-EPRO | SCRIPT-LATAM"
-}
-
-# Function to display the menu options
-display_menu() {
-    enc_darnix
-    echo -e "\e[1;93m  [\e[1;32m1\e[1;93m]\033[1;31m > \e[1;91mACTIVAR WS-EPRO CLOUFLARE"
-    echo -e "\e[1;93m  [\e[1;32m2\e[1;93m]\033[1;31m > \e[1;93mMODIFICAR PUERTO"
-    echo -e "\e[1;93m  [\e[1;32m3\e[1;93m]\033[1;31m > \e[1;93mELIMINAR EPRO"
-    msg -bar
-    echo -ne " \e[1;93m [\e[1;32m0\e[1;93m]\033[1;31m > " && echo -e "\e[97m\033[1;41m VOLVER \033[0;37m"
-    msg -bar
-    echo -ne "\033[1;97mDigite solo el numero segun su respuesta:\e[32m "
-  read option
-      case $option in
-        1) activate_ws_epro ;;
-        2) modify_ws_epro_port ;;
-        3) deactivate_ws_epro ;;
-        0) menu ;;
-        *) echo -e "Opcion Invalida." ;;
-    esac
-
-    echo -ne "\nPressione Enter para continuar"
-    read -r enter
-    display_menu
-}
-
-# Function to install and activate WS-EPRO
-activate_ws_epro() {
-    enc_darnix
-    echo -e "${YELLOW}     >>> ${GREEN}INSTALANDO SERVIDOR PYTHON WS-EPRO ${YELLOW}<<<${RESET}"
+    echo -e "   INSTALANDO SERVIDOR PYTHON WS-EPRO"
     sleep 0.3
     echo
 
@@ -53,9 +14,8 @@ activate_ws_epro() {
     download_and_install "https://docs.google.com/uc?export=download&id=1h9QvOnXScplGTnfpbJ7KJDn4CDkwUKWa" "/usr/bin/ws-port"
 
     # Set port configurations
-    read -p " ✓ AÑADE UN PUERTO PYTHON: " wsopenssh
-    read -p " ✓ PUERTO LOCAL (ssh|ssl|openvpn): " openssh
-
+    wsopenssh=8080
+    openssh=443
     WS_DIR="/usr/local/etc/ws-epro"
     [ -d "$WS_DIR" ] && rm -rf "$WS_DIR"
     sleep 0.3
@@ -99,19 +59,3 @@ chmod +x "$install_path"
 }
 
 # Function to modify WS-EPRO port
-modify_ws_epro_port() {
-    ws-port
-    echo -ne "\nPressione Enter para continuar"
-    read -r enter
-}
-
-# Function to deactivate WS-EPRO
-deactivate_ws_epro() {
-    pkill -f ws-epro
-    WS_DIR="/usr/local/etc/ws-epro"
-    [ -d "$WS_DIR" ] && rm -rf "$WS_DIR"
-    echo -e "${YELLOW}.  >>> PROTOCOLO WS-EPRO DESACTIVADO <<< ${RESET}"
-}
-
-# Main execution starts here
-display_menu
