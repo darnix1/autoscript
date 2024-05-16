@@ -41,9 +41,9 @@ EOF
     systemctl start ws-epro
 
     sleep 0.3
-    enc_darnix
+    
     echo
-    print_center -ama "CONFIGURACIÓN EXITOSA WS EPRO INSTALADO"
+    echo -e "CONFIGURACIÓN EXITOSA WS EPRO INSTALADO"
     echo -e "${YELLOW}             Puerto Local SSH: ${GREEN}$openssh${RESET}"
     echo -e "${YELLOW}             Puerto Phyton: ${GREEN}$wsopenssh${RESET}"
     }
