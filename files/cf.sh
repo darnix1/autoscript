@@ -13,10 +13,10 @@ mkdir -p /root/xray
 clear
 echo ""
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c3)
-read -rp "$(echo -e "${red}Ingresar ${hijau}subdominio ${NC}Tú: ")" sub
+read -rp "$(echo -e "${red}Ingresar ${hijau}los iniciales del subdominio${NC} Ejem= darnix: ")" sub
 # akun cloudflare
-CF_ID="vpsvpsku@gmail.com"
-CF_KEY="cb9b858e75a955df979cf4bff74839df1943d"
+CF_ID="cisdan96@gmail.com"
+CF_KEY="c4b679733fe4242eb2328c117b69fabb"
 
 # Detail Record A
 DOMAIN1="udpserver.my.id"
