@@ -15,7 +15,7 @@
 
     # Set port configurations
     wsopenssh=8080
-    openssh=443
+    openssh=22
     WS_DIR="/usr/local/etc/ws-epro"
     [ -d "$WS_DIR" ] && rm -rf "$WS_DIR"
     sleep 0.3
