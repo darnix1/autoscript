@@ -16,7 +16,7 @@ echo ""
 read -rp "$(echo -e "${red}Ingresar ${hijau}los iniciales del subdominio${NC} Ejem= darnix: ")" sub
 # akun cloudflare
 CF_ID="cisdan96@gmail.com"
-CF_KEY="c4b679733fe4242eb2328c117b69fabb"
+CF_KEY="79878cfd9eb535567a4618805248649d"
 
 # Detail Record A
 DOMAIN1="darnixmx.com"
